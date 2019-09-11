@@ -49,12 +49,12 @@ class ModelsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["flights"].count(), 2)
 
-    def test_valid_flight_page(self):
-        a1 = Airport.objects.get(code="AAA")
-        f = Flight.objects.get(origin=a1, destination=a1)
-        c = Client()
-        response = c.get(f"/{f.id}")
-        self.assertEqual(response.status_code, 200)
+    # def test_valid_flight_page(self):
+    #     a1 = Airport.objects.get(code="AAA")
+    #     f = Flight.objects.get(origin=a1, destination=a1)
+    #     c = Client()
+    #     response = c.get(f"/{f.id}")
+    #     self.assertEqual(response.status_code, 200)
 
-    def test_invalid_flight_page(self):
-        max_id = Flight.objects.all().aggregate(Max("id"))["id_max"]
+    # def test_invalid_flight_page(self):
+    #     max_id = Flight.objects.all().aggregate(Max("id"))["id_max"]
